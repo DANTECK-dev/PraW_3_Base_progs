@@ -1,6 +1,6 @@
 //#define _CRT_SECURE_NO_WARNINGS
-#define N 10
-#define M 1000
+//#define N 10
+#define M 200
 
 #include <iostream>
 #include <string>
@@ -18,4 +18,37 @@ void main() {
 	/*Ввести строку с клавиатуры. Проверить, является ли она правильным идентификатором
 	(может содержать цифры, символы латинского алфавита, знаки подчеркивания,
 	начинается с символа подчеркивания или латинского символа).*/
+	char vari[M]{'\0'};
+	int len, countE(0), errLen;
+
+	cout << "Enter variable: ";
+	cin>>vari;
+	len = strlen(vari);
+	
+	if (isdigit(vari[0])!=0) countE++;
+
+	for (int i = 0; i < len; i++) {
+
+		if ( isalpha(vari[i]) || isdigit(vari[i]) ) countE++;
+
+		if (vari[i] != '_') countE--;
+
+		cout << vari[i];
+	}
+
+	cout << endl;
+
+	if (countE == 0) {
+		cout << "можно использовать";
+	}
+
+	else {
+		cout << "нельзя использовать";
+	}
+
+	cout << endl;
+
+	//cout << countE << endl;
+
+	
 }
