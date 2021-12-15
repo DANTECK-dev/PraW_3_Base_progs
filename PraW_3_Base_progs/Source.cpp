@@ -53,9 +53,41 @@ void main() {
 		cout << "нельз€ использовать";
 	}
 
+	cout << endl << " ол-во ошибок: " << abs(countE) << endl << endl;
+}
+
+void main2() {
+	setlocale(LC_ALL, "rus");
+	SetConsoleOutputCP(1251);
+	SetConsoleCP(1251);
+
+	string vari;
+	int len, countE(0), errLen;
+
+	cout << "Enter variable: ";
+	getline(cin, vari);
+	len = vari.length();
+
+	if (isdigit(vari[0]) != 0) countE++;
+
+	for (int i = 0; i < len; i++) {
+
+		if (isalpha(vari[i]) || isdigit(vari[i])) countE++;
+
+		if (vari[i] != '_') countE--;
+
+		cout << vari[i];
+	}
+
 	cout << endl;
 
-	//cout << countE << endl;
+	if (countE == 0) {
+		cout << "можно использовать";
+	}
 
-	
+	else {
+		cout << "нельз€ использовать";
+	}
+
+	cout << endl << " ол-во ошибок: " << abs(countE) << endl << endl;
 }
